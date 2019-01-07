@@ -10,7 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>strings</module>
-        <module>calculation</module>
+        <module>calculations</module>
         <module>bigDecimal</module>
         <module>arrays</module>
         <module>sorting</module>
