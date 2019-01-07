@@ -17,11 +17,12 @@ public class ArrayLongWrapperTest {
     @Test
     public void testAddElementIntoEmptyArray(){
 
-        arrayLongWrapper.add(10);
+        int index = arrayLongWrapper.add(10);
 
         long getA = arrayLongWrapper.get(0);
 
         assertEquals(10,getA);
+        assertEquals(0,index);
     }
 
     @Test
