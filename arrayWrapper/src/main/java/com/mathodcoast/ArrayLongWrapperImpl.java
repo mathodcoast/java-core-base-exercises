@@ -5,8 +5,7 @@ import java.util.Objects;
 
 /**
  *  {@link ArrayLongWrapperImpl} is an implementation of {@link ArrayLongWrapper} interface. It is a data structure based
- *  on array.
- *
+ *  on array. *
 * */
 public class ArrayLongWrapperImpl implements ArrayLongWrapper {
 
