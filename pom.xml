@@ -16,6 +16,7 @@
         <module>sorting</module>
         <module>recursion</module>
         <module>arrayWrapper</module>
+        <module>mathExpressionParser</module>
     </modules>
 
     <properties>
