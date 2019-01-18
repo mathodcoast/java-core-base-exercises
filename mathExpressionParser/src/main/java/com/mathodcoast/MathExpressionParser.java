@@ -1,46 +1,64 @@
 package com.mathodcoast;
 
+
 public class MathExpressionParser {
     public double calculate(String expression) {
-        String numAString = "";
-        String numBString = "";
-        double numA = 0;
-        double numB;
-        char sign = '0';
-        System.out.println(expression);
-        for (int i = 0; i < expression.length(); i++) {
-            char character = expression.charAt(i);
-            if (numA == 0) {
-                if (Character.isDigit(character)) {
-                    numAString = numAString + character;
-                } else {
-                    numA = Double.valueOf(numAString);
-                    System.out.println(numA);
+        if (expression.startsWith("(") & expression.endsWith(")")){
+
+            return calculate(expression.substring(1, expression.length() - 1));
+        } else{
+            if (expression.startsWith("(")){
+                System.out.println(expression);
+                int pos = expression.length() - 1;
+                while (pos > 0) {
+                    if (Character.isDigit(expression.charAt(pos))) {
+                        pos--;
+                    } else {
+                        double leftOperand = calculate(expression.substring(0,pos));
+                        char operand = expression.charAt(pos);
+                        double rightOperand = Double.valueOf(expression.substring(pos + 1));
+                        return makeOperation(operand,leftOperand,rightOperand);
+                    }
+                }
+            } else if (expression.endsWith(")")){
+                System.out.println(expression);
+                int pos = 0;
+                while (pos < expression.length()) {
+                    if (Character.isDigit(expression.charAt(pos))) {
+                        pos++;
+                    } else {
+                        double leftOperand = Double.valueOf(expression.substring(0,pos));
+                        char operand = expression.charAt(pos);
+                        double rightOperand = calculate(expression.substring(pos + 1));
+                        return makeOperation(operand,leftOperand,rightOperand);
+                    }
                 }
             } else {
-                if (Character.isDigit(character)) {
-                    numBString = numBString + character;
+                System.out.println(expression);
+                int pos = 0;
+                while (pos < expression.length()) {
+                    if (Character.isDigit(expression.charAt(pos))) {
+                        pos++;
+                    } else {
+                        double leftOperand = Double.valueOf(expression.substring(0,pos));
+                        char operand = expression.charAt(pos);
+                        double rightOperand = Double.valueOf(expression.substring(pos + 1));
+                        return makeOperation(operand,leftOperand,rightOperand);
+                    }
                 }
             }
-
-            if (sign == '0' || character == '+' || character == '-' || character == '*' || character == '/') {
-                sign = character;
-                System.out.println(sign);
-            }
         }
-        numB = Double.valueOf(numBString);
-        System.out.println(numB);
-        switch (sign) {
-            case '+':
-                return numA + numB;
-            case '-':
-                return numA - numB;
-            case '*':
-                return numA * numB;
-            case '/':
-                return numA / numB;
-            default:
-                return 0;
+        System.out.println(expression);
+        return Double.valueOf(expression);
+    }
+
+    private double makeOperation(char operand,double leftOperand,double rightOperand) {
+        switch (operand){
+            case '+': return leftOperand + rightOperand;
+            case '-': return leftOperand - rightOperand;
+            case '*': return leftOperand * rightOperand;
+            case '/': return leftOperand / rightOperand;
+            default: return 0;
         }
     }
 }

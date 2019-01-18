@@ -62,4 +62,17 @@ public class StringMethods {
                 .map(s -> s + s + "")
                 .collect(joining());
     }
+
+    /**
+     * This method excludes all space signs from
+     * @param str is String
+     * @return String without space signs
+    * */
+    public static String excludeAllSpaceSigns(String str) {
+        return str.chars()
+                .filter(c -> c != 32)
+                .mapToObj(c -> (char) c)
+                .map(character -> Character.toString(character))
+                .collect(Collectors.joining());
+    }
 }

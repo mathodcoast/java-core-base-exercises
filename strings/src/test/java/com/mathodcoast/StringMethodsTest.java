@@ -71,4 +71,12 @@ public class StringMethodsTest {
         assertEquals("PPeeaacceeNNooWWaarr", result);
     }
 
+    @Test
+    public void testExcludeAllSpaceSigns(){
+        String str = "Cha ra ct er";
+
+        String result = StringMethods.excludeAllSpaceSigns(str);
+        assertEquals("Character", result);
+    }
+
 }

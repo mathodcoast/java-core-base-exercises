@@ -4,7 +4,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import java.math.BigDecimal;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(JUnit4.class)
 public class CalculationTest {
@@ -57,5 +60,34 @@ public class CalculationTest {
 
         double result = Calculation.calculateValueOfExpression_6(a,b,x);
         assertEquals(1.0088,result, 0.0001);
+    }
+
+    @Test
+    public void testBigDecimalExpression(){
+        BigDecimal a = new BigDecimal("0.3");
+        BigDecimal b = new BigDecimal("0.4");
+
+        BigDecimal expected = new BigDecimal("0.28");
+
+        BigDecimal result = Calculation.bigDecimalExpression(a, b);
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void testBigDecimalCalculateAndCompare(){
+        BigDecimal a = new BigDecimal("0.3");
+        BigDecimal b = new BigDecimal("0.4");
+        BigDecimal value = new BigDecimal("0.0063");
+
+        assertTrue(Calculation.calculateAndEqual(a,b,value));
+    }
+
+    @Test
+    public void testBigDecimalCalculationAndRounding(){
+        BigDecimal a = new BigDecimal("0.3");
+        BigDecimal b = new BigDecimal("0.4");
+
+        BigDecimal expected = new BigDecimal("0.557");
+        assertEquals(expected ,Calculation.calculateAndRound(a,b));
     }
 }

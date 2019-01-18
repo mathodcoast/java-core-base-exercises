@@ -1,5 +1,9 @@
 package com.mathodcoast;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
+
 /**
  * Symbol '`' means abs function.
  * Symbol '√' means sqrt
@@ -47,5 +51,34 @@ public class Calculation {
     * */
     public static double calculateValueOfExpression_6(double a,double b,double x) {
         return Math.pow((x * x + b), 0.2) - (b * b * Math.pow((Math.sin(x + a)), 3)) / x;
+    }
+
+    /**
+     * This method calculates "(a+b)*b" expression with
+     * @param a BigDecimal value
+     * @param b BigDecimal value
+     * */
+    public static BigDecimal bigDecimalExpression(BigDecimal a,BigDecimal b) {
+        return a.add(b).multiply(b);
+    }
+
+    /**
+     *  This method calculates "(b-a)*(a+b)*a`2" expression and equal the result with the value.
+     * @param a BigDecimal value
+     * @param b BigDecimal value
+     * @param value value for equaling
+     *
+     * @return boolean equaling of expression's result and value
+     **/
+    public static boolean calculateAndEqual(BigDecimal a,BigDecimal b,BigDecimal value){
+        BigDecimal result = b.subtract(a).multiply(a.add(b)).multiply(a).multiply(a);
+        return result.compareTo(value) == 0;
+    }
+
+    /**
+     * This method calculates "√(a + b`5)" expression and rounds the result to 3 numbers after point.
+     * */
+    public static BigDecimal calculateAndRound(BigDecimal a,BigDecimal b){
+        return a.add(b.pow(5)).sqrt(MathContext.DECIMAL128).setScale(3,RoundingMode.CEILING);
     }
 }
