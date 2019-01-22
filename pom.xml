@@ -17,6 +17,8 @@
         <module>recursion</module>
         <module>arrayWrapper</module>
         <module>mathExpressionParser</module>
+        <module>exceptions</module>
+        <module>orderedArray</module>
     </modules>
 
     <properties>

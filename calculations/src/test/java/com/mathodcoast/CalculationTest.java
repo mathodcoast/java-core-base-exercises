@@ -74,10 +74,10 @@ public class CalculationTest {
     }
 
     @Test
-    public void testBigDecimalCalculateAndCompare(){
+    public void testBigDecimalCalculateAndEqual(){
         BigDecimal a = new BigDecimal("0.3");
         BigDecimal b = new BigDecimal("0.4");
-        BigDecimal value = new BigDecimal("0.0063");
+        BigDecimal value = new BigDecimal("0.00630");
 
         assertTrue(Calculation.calculateAndEqual(a,b,value));
     }

@@ -5,7 +5,7 @@ import java.math.MathContext;
 import java.math.RoundingMode;
 
 /**
- * Symbol '`' means abs function.
+ * Symbol '`' means pow function.
  * Symbol '√' means sqrt
 * */
 
