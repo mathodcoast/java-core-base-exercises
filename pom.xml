@@ -11,14 +11,13 @@
     <modules>
         <module>strings</module>
         <module>calculations</module>
-        <module>bigDecimal</module>
         <module>arrays</module>
         <module>sorting</module>
         <module>recursion</module>
         <module>arrayWrapper</module>
         <module>mathExpressionParser</module>
-        <module>exceptions</module>
         <module>orderedArray</module>
+        <module>cyclesAndConditionalOperators</module>
     </modules>
 
     <properties>

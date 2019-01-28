@@ -55,7 +55,7 @@ public class StringMethods {
      * This method creates and returns the string with double symbols of input string.
      * You need to implement it with Stream API.
     * */
-    public static String createDoublingCharacterStringWitStream(String str) {
+    public static String createDoublingCharacterStringWithStream(String str) {
         Stream<String> stream = Stream.of(str);
         return stream.flatMapToInt(String::chars)
                 .mapToObj(c -> String.valueOf((char)c))
@@ -74,5 +74,14 @@ public class StringMethods {
                 .mapToObj(c -> (char) c)
                 .map(character -> Character.toString(character))
                 .collect(Collectors.joining());
+    }
+
+    /**
+    * This method checks the string if it is a palindrome
+     * @param str is a checking String
+    * */
+    public static boolean palindromeCheck(String str){
+        StringBuilder string = new StringBuilder(str);
+        return string.reverse().toString().equals(str);
     }
 }

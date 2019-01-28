@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import static com.mathodcoast.StringMethods.*;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 
 @RunWith(JUnit4.class)
@@ -66,7 +66,7 @@ public class StringMethodsTest {
     public void creatingByStreamNewStringWithDoublingEachCharacter(){
         String str = "PeaceNoWar";
 
-        String result = createDoublingCharacterStringWitStream(str);
+        String result = createDoublingCharacterStringWithStream(str);
 
         assertEquals("PPeeaacceeNNooWWaarr", result);
     }
@@ -79,4 +79,13 @@ public class StringMethodsTest {
         assertEquals("Character", result);
     }
 
+    @Test
+    public void testPalindromeChecking(){
+        String strA = "aretera";
+        String strB = "false";
+        String strC = "asddsa";
+        assertTrue(StringMethods.palindromeCheck(strA));
+        assertTrue(StringMethods.palindromeCheck(strC));
+        assertFalse(StringMethods.palindromeCheck(strB));
+    }
 }
