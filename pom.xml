@@ -18,6 +18,8 @@
         <module>mathExpressionParser</module>
         <module>orderedArray</module>
         <module>cyclesAndConditionalOperators</module>
+        <module>design-patterns</module>
+        <module>java-collections</module>
     </modules>
 
     <properties>
