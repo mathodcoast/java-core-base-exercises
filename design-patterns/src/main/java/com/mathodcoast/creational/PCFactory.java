@@ -3,7 +3,7 @@ package com.mathodcoast.creational;
 import com.mathodcoast.model.Computer;
 import com.mathodcoast.model.PC;
 
-public class PCFactory implements AbstractCopmputerFactory {
+public class PCFactory implements AbstractComputerFactory {
 
     private String ram;
     private String hdd;

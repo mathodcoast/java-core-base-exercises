@@ -5,19 +5,20 @@ import com.mathodcoast.creational.JavaSingleton;
 import com.mathodcoast.creational.PCFactory;
 import com.mathodcoast.creational.ServerFactory;
 import com.mathodcoast.model.Computer;
+import com.mathodcoast.model.ComputerB;
 import org.junit.Test;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import static junit.framework.TestCase.assertEquals;
-import static junit.framework.TestCase.assertTrue;
+import static junit.framework.TestCase.*;
+import static org.junit.Assert.assertNotEquals;
 
-@RunWith( JUnit4.class )
+@RunWith ( JUnit4.class )
 public class TestDesignPatterns {
 
     @Test
-    public void testSingleton(){
+    public void testSingleton() {
         JavaSingleton javaSingletonA = JavaSingleton.getInstance();
         JavaSingleton javaSingletonB = JavaSingleton.getInstance();
 
@@ -27,7 +28,7 @@ public class TestDesignPatterns {
     }
 
     @Test
-    public void testComputerFactory(){
+    public void testComputerFactory() {
         Computer pc = ComputerFactory.getComputer("PC","2 GB","1 TB","2.4 GHz");
         Computer server = ComputerFactory.getComputer("Server","16 GB","2 TB","3.4 GHz");
 
@@ -36,11 +37,36 @@ public class TestDesignPatterns {
     }
 
     @Test
-    public void testAbstractComputerFactory(){
+    public void testAbstractComputerFactory() {
         Computer pc = ComputerFactory.getComputer(new PCFactory("2 GB","1 TB","2.4 GHz"));
         Computer server = ComputerFactory.getComputer(new ServerFactory("16 GB","2 TB","3.4 GHz"));
 
         assertEquals("RAM=2 GB, HDD=1 TB, CPU=2.4 GHz",pc.toString());
         assertEquals("RAM=16 GB, HDD=2 TB, CPU=3.4 GHz",server.toString());
+    }
+
+    @Test
+    public void testComputerBuilder() {
+        ComputerB computerA = new ComputerB.ComputerBuilder("2 GB","1 TB","2.4 GHz")
+                .setGraphicalCardEnabled(true)
+                .setBluetoothEnabled(true)
+                .build();
+
+        ComputerB computerB = new ComputerB.ComputerBuilder("2 GB","1 TB","2.4 GHz")
+                .setGraphicalCardEnabled(true)
+                .setBluetoothEnabled(true)
+                .build();
+
+        ComputerB computerC = new ComputerB.ComputerBuilder("2 GB","1 TB","2.4 GHz")
+                .setGraphicalCardEnabled(true)
+                .setBluetoothEnabled(false)
+                .build();
+
+        ComputerB computerD = new ComputerB.ComputerBuilder("2 GB","1 TB","2.4 GHz")
+                .build();
+
+        assertEquals(computerA,computerB);
+        assertNotEquals(computerA,computerC);
+        assertNotEquals(computerA,computerD);
     }
 }

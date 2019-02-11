@@ -17,7 +17,7 @@ public class ComputerFactory {
         return null;
     }
 
-    public static Computer getComputer(AbstractCopmputerFactory factory){
+    public static Computer getComputer(AbstractComputerFactory factory){
         return factory.createComputer();
     }
 }
