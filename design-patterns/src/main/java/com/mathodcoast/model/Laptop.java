@@ -2,7 +2,7 @@ package com.mathodcoast.model;
 
 import java.util.Objects;
 
-public class ComputerB {
+public class Laptop {
 
     private String HDD;
     private String RAM;
@@ -23,7 +23,7 @@ public class ComputerB {
         return CPU;
     }
 
-    private ComputerB(ComputerBuilder builder) {
+    private Laptop(ComputerBuilder builder) {
         this.HDD = builder.HDD;
         this.RAM = builder.RAM;
         this.CPU = builder.CPU;
@@ -43,12 +43,12 @@ public class ComputerB {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ComputerB computerB = (ComputerB) o;
-        return HDD.equals(computerB.HDD) &&
-                RAM.equals(computerB.RAM) &&
-                CPU.equals(computerB.CPU) &&
-                Objects.equals(isGraphicalCardEnabled,computerB.isGraphicalCardEnabled) &&
-                Objects.equals(isBluetoothEnabled,computerB.isBluetoothEnabled);
+        Laptop laptop = (Laptop) o;
+        return HDD.equals(laptop.HDD) &&
+                RAM.equals(laptop.RAM) &&
+                CPU.equals(laptop.CPU) &&
+                Objects.equals(isGraphicalCardEnabled,laptop.isGraphicalCardEnabled) &&
+                Objects.equals(isBluetoothEnabled,laptop.isBluetoothEnabled);
     }
 
     @Override
@@ -81,8 +81,8 @@ public class ComputerB {
             return this;
         }
 
-        public ComputerB build(){
-            return new ComputerB(this);
+        public Laptop build(){
+            return new Laptop(this);
         }
     }
 }

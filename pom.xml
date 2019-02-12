@@ -20,6 +20,7 @@
         <module>cyclesAndConditionalOperators</module>
         <module>design-patterns</module>
         <module>java-collections</module>
+        <module>multithreading</module>
     </modules>
 
     <properties>
