@@ -21,6 +21,7 @@
         <module>design-patterns</module>
         <module>java-collections</module>
         <module>multithreading</module>
+        <module>map-collection-dao</module>
     </modules>
 
     <properties>
